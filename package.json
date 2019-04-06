@@ -1,0 +1,12 @@
+{
+  "name": "node_module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node helper.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
