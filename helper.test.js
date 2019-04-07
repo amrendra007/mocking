@@ -1,10 +1,4 @@
 /**
- * socket file has emitSocketData function that is getting called in outer function
- * of helper.js, here i am mocking emitSocketData function
- */
-
-
-/**
  * overiding socket function defining and adding it to 
  * require.cache object,  so next time node will use
  * this cached definition of function instead of original one
@@ -22,14 +16,12 @@ require.cache[resolved] = {
     }
 }
 
-//now requiring helper module here is important 
+/**
+ * now requiring helper module here is important 
+ * this require enable node to cache helper module in require.cache[require.resolve('./helper.js')]
+ * with mocked version of emitSocketData function in require.cache[require.resolve('./helper.js')].children
+ */
+
 const helper = require('./helper')
-
-// this require enable node to cache helper module in require.cache[require.resolve('./helper.js')]
-// with mocked version of emitSocketData function in require.cache[require.resolve('./helper.js')].children
-
-// const cachedHelperModule = require.cache[require.resolve('./helper.js')]
-// console.log("cachedHelperModule", cachedHelperModule.children)
-
 helper();
 
